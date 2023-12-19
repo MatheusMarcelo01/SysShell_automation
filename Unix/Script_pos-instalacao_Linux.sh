@@ -1,59 +1,55 @@
-# Atualiza a lista de pacotes
-sudo apt-get update
+#Definir botão maximizar Linux
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
-# Instalação do pacote snap
-sudo apt-get install snapd
+echo "Botão adicionado com sucesso!"
 
-# Instalação do navegador Brave
-sudo snap install brave
+# Tecla personalizada (Super+E -> nautilus)
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Arquivos'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'gnome-terminal -- nautilus'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Super>e'
 
-# Instalação do LibreOffice
-sudo apt-get install libreoffice
 
-# Instalação do Visual Studio Code
-sudo snap install --classic code
+# Tecla personalizada (Super+R -> terminal)
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name 'Terminal'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command 'gnome-terminal'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding '<Super>r'
 
-# Instalação do Anki
-sudo apt-get install anki
 
-# Instalação do calc
-sudo apt-get install gnome-calculator
+#Instalando programas:
+#Brave
+sudo apt install curl -y
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg -y
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list -y
+sudo apt update -y
+sudo apt install brave-browser -y
 
-# Instalação do Flameshot
-sudo apt-get install flameshot
+#programs
+sudo apt install remmina -y
+sudo apt install nodejs -y
+sudo apt install git -y
+sudo apt install calc -y
+sudo snap install --classic code -y
+sudo apt-get install flameshot -y
+sudo apt-get install wine -y 
+sudo apt-get install vlc -y
+sudo apt-get install python3 -y
+echo "Instalações concluídas!"
 
-# Instalação do Kate
-sudo apt-get install kate
-
-# Instalação do PyCharm Community Edition
-sudo snap install pycharm-community --classic
-
-# Instalação do Steam
-sudo apt-get install steam
-
-# Instalação do Wine
-sudo apt-get install wine
-
-# Instalação do VLC
-sudo apt-get install vlc
-
-# Instalação do Discord
-sudo snap install discord
-
-# Instalação do Git
-sudo apt-get install git
-
-# Instalação do Python3
-sudo apt-get install python3
-
-# Instalação do Node.js
-sudo apt-get install nodejs
+#extensões code
+code --install-extension zhuangtongfa.material-theme -y
+code --install-extension ms-python.python -y
+code --install-extension dsznajder.es7-react-js-snippets -y
+echo "extensões do VSCode instaladas"
 
 #não fechar softwares em segundo plano do terminal
 nohup "$@" >/dev/null 2>&1 &
 
-echo "Instalação concluída!"
-
+echo "Finalizando"
+sudo apt update && sudo apt dist-upgrade && sudo apt upgrade -y
+sudo apt autoclean
+sudo apt autoremove -y
 
 
 ##Salvar o script com a extensão .sh e executar com permissões de superusuário. 
