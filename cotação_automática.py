@@ -45,7 +45,6 @@ def salvar_em_excel(dados, arquivo='precos_amazon.xlsx'):
     df.to_excel(arquivo, index=False)
 
 links_produtos = [
-    "https://www.amazon.com.br/Kimono-Ultra-Light-2-2-Branco/dp/B09XVL7JRK/ref=asc_df_B09XVL7JRK/?hvadid=709885513615&hvpos=&hvnetw=g&hvrand=9937576592781228218&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1031911&hvtargid=pla-1926734224747&mcid=6888729fb7623b30ab30f20793379ae1&gad_source=4&psc=1",
     "https://www.amazon.com.br/Mouse-Redragon-Chroma-12400DPI-Bot%C3%B5es/dp/B07Q437WXK/ref=pd_bxgy_d_sccl_1/144-8456024-2410658?psc=1",
     "https://www.amazon.com.br/Ideias-T%C3%AAm-Consequ%C3%AAncias-Richard-Weaver/dp/8580332648/ref=sr_1_1?sr=8-1&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9",
 ]
